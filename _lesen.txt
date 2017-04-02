@@ -1,0 +1,29 @@
+Jedes Script ist an das zu verwendende Abspielgerät anzupassen, entsprechende Anleitungen finden sich in jedem Script.
+
+Jedes Script ist mit mit cscript aufzurufen, zB cscript play.vbs.
+
+Für die Wiederverwendung in anderen Tools gibt jedes Script die URL, den Request Header und das übermittelte XML aus.
+
+
+Reihenfolge für die Ausgabe eines Liedes/Streams:
+1) Stop
+2) Lied/Stream festlegen
+3) Play
+4) Ev. Mute deaktivieren
+
+
+Pause.vbs: Pause
+Play.vbs: Play
+Stop.vbs: Stop
+SetAVTransportURI.vbs: Lied/Stream festlegen
+SetMute.vbs: Mute aktivieren/deaktivieren
+SetVolume.vbs: Lautstärke festlegen
+
+
+Ich habe einen UPnP/DLAN Media Server laufen - wie finde ich die URL einer Datei heraus?
+1) Developer Tools for UPnP Technologies von http://opentools.homeip.net/ installieren
+2) "AV Media Controller.exe" starten, unter "Content Directories" den gewünschten UPnP/DLAN Media Server auswählen
+3) Durch die Ordnerstruktur zur gewünschten Datei navigieren, diese auswählen, rechte Maustaste, "Display Properties"
+4) Links findet man nun Einträge "Resource #1" bis "Resource #n" - für jeden zur Verfügung gestellten Dateityp, Qualität etc. einen Eintrag.
+5) Gewünschten Dateityp finden: Einen Resource-Eintrag auswählen und die angezeigten Eigenschaften ansehen (zB ContenUri-Dateiendung oder protocolInfo)
+6) Feld "ContentUri" des gewünschten Resource-Eintrags (meist wohl "Resource #1) mit der rechten Maustaste anklicken, "Copy" - die URL zur Datei ist jetzt in der Zwischenablage.
